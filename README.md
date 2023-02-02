@@ -7,4 +7,4 @@ Description:
 - The user tries to write the word they hear in a proper way.
 
 ### Motivation:
-- My little sister studying English :) The basic program was for her.
+- My little sister studying English and I'm rust :) The basic program was for her. (So I studied strings in rust.)
