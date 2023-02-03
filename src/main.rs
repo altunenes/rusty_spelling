@@ -43,8 +43,9 @@ fn main() -> Result<(), Error> {
 
         let mut guess = String::new();
         io::stdin().read_line(&mut guess).unwrap();
-        guess = guess.trim().to_string();
-
+        let word = word.to_lowercase();
+        let guess = guess.trim().to_lowercase();
+        
         if guess == word {
             points += 1;
             correct_words.push(word.clone());
