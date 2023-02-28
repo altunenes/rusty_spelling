@@ -22,6 +22,7 @@ fn main() -> Result<(), Error> {
     let mut points = 0;
     let mut incorrect_guesses = 0;
     let mut correct_words = Vec::new();
+    let mut incorrect_words = Vec::new();
     let mut rng = rand::thread_rng();
     let mut tts = Tts::default()?;
 
@@ -35,7 +36,7 @@ fn main() -> Result<(), Error> {
         io::stdin().read_line(&mut guess).unwrap();
         let word = word.to_lowercase();
         let guess = guess.trim().to_lowercase();
-        
+
         if guess == word {
             points += 1;
             correct_words.push(word.clone());
@@ -45,12 +46,14 @@ fn main() -> Result<(), Error> {
             break 'game_loop;
         } else {
             incorrect_guesses += 1;
+            incorrect_words.push(word.clone());
             println!("{} {}", "Incorrect.".red().bold(), format!("The word was {}.", word).red());
         }
     }
 
     println!("\n{}", format!("You scored {} points!", points).yellow().bold());
     println!("\n{}", format!("You made {} incorrect guesses.", incorrect_guesses).yellow().bold());
+
     if !correct_words.is_empty() {
         println!("\n{}", "You got the following words correct:".yellow().bold());
         let mut correct_counts = std::collections::HashMap::new();
@@ -59,6 +62,17 @@ fn main() -> Result<(), Error> {
         }
         for (word, count) in correct_counts.iter() {
             println!("{} ({})", word.green().bold(), count);
+        }
+    }
+
+    if !incorrect_words.is_empty() {
+        println!("\n{}", "You got the following words incorrect:".yellow().bold());
+        let mut incorrect_counts = std::collections::HashMap::new();
+        for word in &incorrect_words {
+            *incorrect_counts.entry(word).or_insert(0) += 1;
+        }
+        for (word, count) in incorrect_counts.iter() {
+            println!("{} ({})", word.red().bold(), count);
         }
     }
 
