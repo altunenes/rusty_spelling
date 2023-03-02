@@ -1,31 +1,43 @@
+use std::fs::File;
+use std::io::{BufRead, BufReader};
 use std::io;
 use rand::prelude::SliceRandom;
 use tts::*;
 use colored::*;
 
+fn read_words_from_file(path: &str) -> Result<Vec<String>, io::Error> {
+    let file = File::open(path)?;
+    let reader = BufReader::new(file);
+    let mut words = Vec::new();
+    for line in reader.lines() {
+        let line = line?;
+        words.extend(line.split(',').map(|word| word.trim().to_string()));
+    }
+    Ok(words)
+}
 fn main() -> Result<(), Error> {
-    println!("{}", "Enter the words you want to practice, separated by commas. Type '/exit' to end the game:".green());
-
+    println!("{}", "Enter the words you want to practice, separated by commas, or enter the path to a file containing the words. Type '/exit' to end the game:".green());
     let mut input = String::new();
     io::stdin().read_line(&mut input).unwrap();
-    let words: Vec<String> = input
-        .split(',')
-        .map(|word| word.trim().to_string())
-        .filter(|word| !word.is_empty())
-        .collect();
-
+    let words: Vec<String> = if let Ok(file_words) = read_words_from_file(input.trim()) {
+        file_words
+    } else {
+        input
+            .split(',')
+            .map(|word| word.trim().to_string())
+            .filter(|word| !word.is_empty())
+            .collect()
+    };
     if words.is_empty() {
         println!("{}", "No words were entered. Please try again.".red());
         return Ok(());
     }
-
     let mut points = 0;
     let mut incorrect_guesses = 0;
     let mut correct_words = Vec::new();
     let mut incorrect_words = Vec::new();
     let mut rng = rand::thread_rng();
     let mut tts = Tts::default()?;
-
     'game_loop: while let Some(word) = words.choose(&mut rng) {
         tts.speak(word, true)?;
         let hidden_word: String = word.chars().map(|_| "_ ".bold().to_string()).collect();
@@ -50,18 +62,18 @@ fn main() -> Result<(), Error> {
             println!("{} {}", "Incorrect.".red().bold(), format!("The word was {}.", word).red());
         }
     }
-
     println!("\n{}", format!("You scored {} points!", points).yellow().bold());
-    println!("\n{}", format!("You made {} incorrect guesses.", incorrect_guesses).yellow().bold());
-
+    println!("\n{}", format!("You made {} incorrect guesses.", incorrect_guesses).red().bold());
     if !correct_words.is_empty() {
         println!("\n{}", "You got the following words correct:".yellow().bold());
         let mut correct_counts = std::collections::HashMap::new();
         for word in &correct_words {
-            *correct_counts.entry(word).or_insert(0) += 1;
+            *correct_counts.entry(word).or_insert(
+                0
+            ) += 1;
         }
-        for (word, count) in correct_counts.iter() {
-            println!("{} ({})", word.green().bold(), count);
+        for (word, count) in correct_counts {
+            println!("{} {}", word, format!("({})", count).yellow());
         }
     }
 
@@ -69,10 +81,12 @@ fn main() -> Result<(), Error> {
         println!("\n{}", "You got the following words incorrect:".yellow().bold());
         let mut incorrect_counts = std::collections::HashMap::new();
         for word in &incorrect_words {
-            *incorrect_counts.entry(word).or_insert(0) += 1;
+            *incorrect_counts.entry(word).or_insert(
+                0
+            ) += 1;
         }
-        for (word, count) in incorrect_counts.iter() {
-            println!("{} ({})", word.red().bold(), count);
+        for (word, count) in incorrect_counts {
+            println!("{} {}", word, format!("({})", count).yellow());
         }
     }
 
