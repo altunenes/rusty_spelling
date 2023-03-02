@@ -16,7 +16,7 @@ fn read_words_from_file(path: &str) -> Result<Vec<String>, io::Error> {
     Ok(words)
 }
 fn main() -> Result<(), Error> {
-    println!("{}", "Enter the words you want to practice, separated by commas, or enter the path to a file containing the words. Type '/exit' to end the game:".green());
+    println!("{}", "Enter the words you want to practice, separated by commas, or enter the 'word_list.txt' to  containing the words from a file. Type '/exit' to end the game:".green());
     let mut input = String::new();
     io::stdin().read_line(&mut input).unwrap();
     let words: Vec<String> = if let Ok(file_words) = read_words_from_file(input.trim()) {
