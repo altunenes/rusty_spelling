@@ -33,3 +33,7 @@ cargo build --release
 
 ### Motivation:
 - My little sister studying English and I'm rust :). The basic program was for her. (So I studied strings in rust.)
+
+#### Future, in progress:
+
+- Working on a web version via wasm.
