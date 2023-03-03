@@ -6,7 +6,7 @@ Description:
 
 - The user tries to write the word they hear in a proper way.
 - Print /exit to exit the program and it prints the score and statistics of the game.
-- You can play with "word_list.txt" file that contains a list of words. You can add your own words to the file. If you want to play with "word_list.txt" file, print "2" and enter on the console when the program asks you to play mode.
+- You can play with "word_list.txt" file that contains a list of words. You can add your own words to the file.
 
 ### Usage/Installation:
 - You need to install rust on your computer. You can install it from [here](https://www.rust-lang.org/tools/install).
@@ -15,7 +15,11 @@ Description:
 cargo run
 ```
 
-- Build the executable file: Open a terminal window and navigate to your project directory. Run the following command:
+This will compile and run the program.
+
+- Build the executable file: Another way to run the program is to build the executable file. You can do this by following the steps below:
+
+- Open a terminal window and navigate to your project directory. Run the following command:
   
 ```bash
 cargo build --release
