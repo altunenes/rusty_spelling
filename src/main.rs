@@ -6,8 +6,11 @@ use std::fs::File;
 use std::io::BufRead;
 use std::io::BufReader;
 
+
 fn main() -> Result<(), Error> {
+
     println!("\n{}\n", "Welcome to Word Practice Game!".green().bold().blink());
+    println!("\n{}\n", "Author: altunenes".truecolor(118, 3, 250));
     println!("{}", "-".repeat(60).red());    
     println!("{}", "If you want to play with words you want to practice print 1 and enter".truecolor(0,255,0));
     println!("{}", "-".repeat(60).red());    
@@ -15,6 +18,7 @@ fn main() -> Result<(), Error> {
     println!("{}", "-".repeat(60).red());
     println!("{}", "if you want to exit the game enter /exit and see your stats".truecolor(0, 255, 136));
     println!("{}", "-".repeat(60).red());
+
 
     let mut input = String::new();
     io::stdin().read_line(&mut input).unwrap();
@@ -54,7 +58,7 @@ fn main() -> Result<(), Error> {
     let mut incorrect_words = Vec::new();
     let mut rng = rand::thread_rng();
     let mut tts = Tts::default()?;
-
+    
     'game_loop: while let Some(word) = words.choose(&mut rng) {
         tts.speak(word, true)?;
         let hidden_word: String = word.chars().map(|_| "_ ".bold().to_string()).collect();
@@ -84,6 +88,7 @@ fn main() -> Result<(), Error> {
     println!("{}", "-".repeat(60).red());    
     println!("\n{}", format!("You made {} incorrect guesses.", incorrect_guesses).yellow().bold());
 
+
     if !correct_words.is_empty() {
         println!("\n{}", "You got the following words correct:".yellow().bold());
         let mut correct_counts = std::collections::HashMap::new();
@@ -101,6 +106,8 @@ fn main() -> Result<(), Error> {
             println!("{} {}", word, format!("({})", count).yellow());
         }
     }
+
+
 
     Ok(())
 }

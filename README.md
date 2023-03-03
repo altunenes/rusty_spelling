@@ -8,5 +8,24 @@ Description:
 - Print /exit to exit the program and it prints the score and statistics of the game.
 - You can play with "word_list.txt" file that contains a list of words. You can add your own words to the file. If you want to play with "word_list.txt" file, print "2" and enter on the console when the program asks you to play mode.
 
+### Usage/Installation:
+- You need to install rust on your computer. You can install it from [here](https://www.rust-lang.org/tools/install).
+- Open the project folder into your terminal and write the cargo run command.
+```bash
+cargo run
+```
+
+- Build the executable file: Open a terminal window and navigate to your project directory. Run the following command:
+  
+```bash
+cargo build --release
+```
+
+- This will compile your code and create an executable in the "target/release/rust_spell.exe" directory.
+
+
+- You can simply the run executable file by double-clicking on it. 
+
+
 ### Motivation:
-- My little sister studying English and I'm rust :) The basic program was for her. (So I studied strings in rust.)
+- My little sister studying English and I'm rust :). The basic program was for her. (So I studied strings in rust.)
