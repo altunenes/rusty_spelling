@@ -32,7 +32,7 @@ cargo run
 This will compile and run the program.
 
 
-  ![8x8](.static/rusty_spelling.PNG)
+  ![8x8](./static/rusty_spelling.png)
 
 
 
