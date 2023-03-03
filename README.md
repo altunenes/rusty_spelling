@@ -1,4 +1,4 @@
-# rust_spell
+# rusty_spelling
 A basic spelling game in Rust programing language
 
 Description:
