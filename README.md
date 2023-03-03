@@ -32,6 +32,10 @@ cargo run
 This will compile and run the program.
 
 
+  ![8x8](.static/rusty_spelling.PNG)
+
+
+
 ### Motivation:
 - My little sister studying English and I'm rust :). The basic program was for her. (So I studied strings in rust.)
 
