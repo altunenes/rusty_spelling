@@ -10,14 +10,6 @@ Description:
 
 ### Usage/Installation:
 - You need to install rust on your computer. You can install it from [here](https://www.rust-lang.org/tools/install).
-- Open the project folder into your terminal and write the cargo run command.
-```bash
-cargo run
-```
-
-This will compile and run the program.
-
-- Build the executable file: Another way to run the program is to build the executable file. You can do this by following the steps below:
 
 - Open a terminal window and navigate to your project directory. Run the following command:
   
@@ -29,6 +21,15 @@ cargo build --release
 
 
 - You can simply the run executable file by double-clicking on it. 
+
+
+- Or open the project folder in your terminal and write the cargo run command.
+  
+```bash
+cargo run
+```
+
+This will compile and run the program.
 
 
 ### Motivation:
