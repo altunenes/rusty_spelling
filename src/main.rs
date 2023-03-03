@@ -9,7 +9,7 @@ use std::io::BufReader;
 
 fn main() -> Result<(), Error> {
 
-    println!("\n{}\n", "Welcome to Word Practice Game!".green().bold().blink());
+    println!("\n{}\n", "Welcome to Rusty Spelling".green().bold().blink());
     println!("\n{}\n", "Author: altunenes".truecolor(118, 3, 250));
     println!("{}", "-".repeat(60).red());    
     println!("{}", "If you want to play with words you want to practice print 1 and enter".truecolor(0,255,0));
