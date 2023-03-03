@@ -9,3 +9,7 @@ edition = "2021"
 rand = "0.7.3"
 tts = "0.25.0"
 colored = "2.0.0"
+crossterm = "0.26.1"
+
+[build]
+target = "x86_64-pc-windows-msvc"
