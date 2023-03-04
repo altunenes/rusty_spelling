@@ -5,7 +5,8 @@ use colored::*;
 use std::fs::File;
 use std::io::BufRead;
 use std::io::BufReader;
-
+mod results;
+use results::*;
 
 fn main() -> Result<(), Error> {
 
@@ -61,7 +62,7 @@ fn main() -> Result<(), Error> {
     
     'game_loop: while let Some(word) = words.choose(&mut rng) {
         tts.speak(word, true)?;
-        let hidden_word: String = word.chars().map(|_| "_".white().bold().to_string() + "  ").collect();
+        let hidden_word: String = word.chars().map(|_| "_ ".bold().to_string()).collect();
         println!("The word is: {}", hidden_word);
         println!("{}", "Enter your guess:".bold());
 
@@ -106,7 +107,15 @@ fn main() -> Result<(), Error> {
             println!("{} {}", word, format!("({})", count).yellow());
         }
     }
-
+    let result = GameResult {
+        date_time: chrono::Local::now().to_string(),
+        score: points,
+        correct_words: correct_words,
+        incorrect_words: incorrect_words,
+    };
+    let mut results = Results::new();
+    results.add_result(result);
+    results.save_results("results.json").unwrap();
 
 
     Ok(())
