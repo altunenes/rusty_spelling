@@ -61,7 +61,7 @@ fn main() -> Result<(), Error> {
     
     'game_loop: while let Some(word) = words.choose(&mut rng) {
         tts.speak(word, true)?;
-        let hidden_word: String = word.chars().map(|_| "_ ".bold().to_string()).collect();
+        let hidden_word: String = word.chars().map(|_| "_".white().bold().to_string() + "  ").collect();
         println!("The word is: {}", hidden_word);
         println!("{}", "Enter your guess:".bold());
 
