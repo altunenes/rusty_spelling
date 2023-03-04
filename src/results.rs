@@ -36,7 +36,9 @@ impl Results {
         Ok(())
     }
 
-    //*pub fn load_results(file_path: &str) -> Result<Self, std::io::Error> {
+    //* this for further development
+    
+    //pub fn load_results(file_path: &str) -> Result<Self, std::io::Error> {
        // let file = File::open(Path::new(file_path))?;
        // let reader = BufReader::new(file);
        //let results = serde_json::from_reader(reader)?;
