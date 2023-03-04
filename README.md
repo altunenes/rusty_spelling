@@ -9,21 +9,28 @@ Description:
 - You can play with "word_list.txt" file that contains a list of words. You can add your own words to the file.
 
 ### Usage/Installation:
-- You need to install rust on your computer. You can install it from [here](https://www.rust-lang.org/tools/install).
+1-   You need to install rust on your computer. You can install it from [here](https://www.rust-lang.org/tools/install).
 
-- Open a terminal window and navigate to your project directory. Run the following command:
+2- Click on the green "Code" button (top right of this page) and select "Download ZIP".
+
+3- Extract the downloaded ZIP file to a folder on your computer (e.g., "rusty_spelling").
+   Open the folder "rusty_spelling".
+
+4- Open the terminal (also known as command prompt or cmd) on your computer. You can simply open it in the folder "rusty_spelling" by right-clicking on the folder and selecting "Open in Terminal".
+
+5- Write the following command in the terminal to compile the code and create an executable file.
   
 ```bash
 cargo build --release
 ```
 
-- This will compile your code and create an executable in the "target/release/rust_spell.exe" directory.
+- This will compile code and create an executable in the "target/release/rusty_spelling.exe" directory.
 
 
 - You can simply the run executable file by double-clicking on it. 
 
 
-- Or open the project folder in your terminal and write the cargo run command.
+- Or run this command in the terminal after you build the executable file.
   
 ```bash
 cargo run
