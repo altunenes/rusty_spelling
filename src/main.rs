@@ -112,6 +112,7 @@ fn main() -> Result<(), Error> {
         score: points,
         correct_words: correct_words,
         incorrect_words: incorrect_words,
+        wrong_attempts: incorrect_guesses,
     };
     let mut results = Results::new();
     results.add_result(result);
