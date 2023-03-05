@@ -45,7 +45,7 @@ This will compile and run the program.
 
 
 ### Motivation:
-- My little sister studying English and I'm rust :). The basic program was for her. (So I studied strings in rust.)
+- My little sister studying English and I wanted to make a simple spelling game for her to practice her English.
 
 #### Future, in progress:
 
