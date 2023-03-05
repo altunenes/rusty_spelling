@@ -35,13 +35,4 @@ impl Results {
         writeln!(file, "{}", serde_json::to_string(self).unwrap())?;
         Ok(())
     }
-
-    //* this for further development
-    
-    //pub fn load_results(file_path: &str) -> Result<Self, std::io::Error> {
-       // let file = File::open(Path::new(file_path))?;
-       // let reader = BufReader::new(file);
-       //let results = serde_json::from_reader(reader)?;
-       // Ok(results)
-    //}
 }

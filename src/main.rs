@@ -1,3 +1,5 @@
+mod route;
+mod results;
 use std::io;
 use rand::prelude::SliceRandom;
 use tts::*;
@@ -5,21 +7,13 @@ use colored::*;
 use std::fs::File;
 use std::io::BufRead;
 use std::io::BufReader;
-mod results;
+use route::print_intro;
 use results::*;
+
 
 fn main() -> Result<(), Error> {
 
-    println!("\n{}\n", "Welcome to Rusty Spelling".green().bold().blink());
-    println!("\n{}\n", "Author: altunenes".truecolor(118, 3, 250));
-    println!("{}", "-".repeat(60).red());    
-    println!("{}", "If you want to play with words you want to practice print 1 and enter".truecolor(0,255,0));
-    println!("{}", "-".repeat(60).red());    
-    println!("{}", "If you want to practice from a word_list.txt print 2 and enter".truecolor(0, 255, 136));
-    println!("{}", "-".repeat(60).red());
-    println!("{}", "if you want to exit the game enter /exit and see your stats".truecolor(0, 255, 136));
-    println!("{}", "-".repeat(60).red());
-
+    print_intro();
 
     let mut input = String::new();
     io::stdin().read_line(&mut input).unwrap();
