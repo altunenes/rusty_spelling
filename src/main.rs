@@ -4,10 +4,8 @@ use std::io;
 use rand::prelude::SliceRandom;
 use tts::*;
 use colored::*;
-use std::fs::File;
-use std::io::BufRead;
-use std::io::BufReader;
 use route::print_intro;
+use route::take_game_inputs;
 use results::*;
 
 
@@ -15,37 +13,7 @@ fn main() -> Result<(), Error> {
 
     print_intro();
 
-    let mut input = String::new();
-    io::stdin().read_line(&mut input).unwrap();
-    let selected_option = input.trim();
-
-    let mut words: Vec<String> = Vec::new();
-    if selected_option == "1" {
-        println!("{}", "Enter the words you want to practice, separated by commas. Type '/exit' to end the game:".green());
-        let mut input = String::new();
-        io::stdin().read_line(&mut input).unwrap();
-        words = input
-            .split(',')
-            .map(|word| word.trim().to_string())
-            .filter(|word| !word.is_empty())
-            .collect();
-    } else if selected_option == "2" {
-        let file = File::open("word_list.txt").unwrap();
-        let reader = BufReader::new(file);
-        for line in reader.lines() {
-            if let Ok(word) = line {
-                words.push(word.trim().to_string());
-            }
-        }
-    } else {
-        println!("{}", "Invalid option selected. Exiting game.".red());
-        return Ok(());
-    }
-
-    if words.is_empty() {
-        println!("{}", "No words were entered. Please try again.".red());
-        return Ok(());
-    }
+    let words = take_game_inputs().unwrap();
 
     let mut points = 0;
     let mut incorrect_guesses = 0;
