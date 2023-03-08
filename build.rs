@@ -1,5 +1,7 @@
 use std::fs;
 
 fn main() {
-    fs::copy("word_list.txt", "target/release/word_list.txt").unwrap();
+    let src_path = "word_list.txt";
+    let dst_path = concat!(env!("CARGO_MANIFEST_DIR"), "/target/release/word_list.txt");
+    fs::copy(src_path, dst_path).expect("Failed to copy file");
 }

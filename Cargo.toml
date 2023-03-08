@@ -9,11 +9,11 @@ authors = ["altunenes"]
 
 [dependencies]
 rand = "0.7.3"
-tts = { version= "0.25.0",default-features = false }
+tts = "0.25.0"
 colored = "2.0.0"
 serde = { version = "1.0.152", features = ["derive"] }
 serde_json = "1.0.93"
 chrono = "0.4.23"
-windows = "0.44.0"
+
 [build]
 target = "x86_64-pc-windows-msvc"
