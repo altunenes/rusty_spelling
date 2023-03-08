@@ -824,7 +824,6 @@ dependencies = [
  "rand",
  "serde",
  "serde_json",
- "speech-dispatcher-sys",
  "tts",
 ]
 
