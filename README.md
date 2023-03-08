@@ -1,4 +1,7 @@
 # rusty_spelling
+
+[![Rust](https://github.com/altunenes/rusty_spelling/actions/workflows/rust.yml/badge.svg)](https://github.com/altunenes/rusty_spelling/actions/workflows/rust.yml)
+
 A basic spelling game in Rust programing language
 
 Description:
