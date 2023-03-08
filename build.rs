@@ -1,7 +1,10 @@
 use std::fs;
+use std::path::Path;
 
 fn main() {
-    let src_path = "word_list.txt";
-    let dst_path = concat!(env!("CARGO_MANIFEST_DIR"), "/target/release/word_list.txt");
-    fs::copy(src_path, dst_path).expect("Failed to copy file");
+    let target_dir = Path::new("target/release");
+    if !target_dir.exists() {
+        fs::create_dir_all(target_dir).unwrap();
+    }
+    fs::copy("word_list.txt", target_dir.join("word_list.txt")).unwrap();
 }
