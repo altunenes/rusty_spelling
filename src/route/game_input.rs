@@ -21,7 +21,7 @@ pub fn read_input_and_select_option() -> Result<Vec<String>, Box<dyn std::error:
             .filter(|word| !word.is_empty())
             .collect();
     } else if selected_option == "2" {
-        let file = File::open("word_list.txt").map_err(|_| "Could not find word_list.txt file. Please make sure the file exists in the current directory.")?;
+    let file = File::open("word_list.txt").map_err(|_| "Could not find word_list.txt file. Please make sure the file exists in the current directory.")?;
         let reader = BufReader::new(file);
         for line in reader.lines() {
             if let Ok(word) = line {
