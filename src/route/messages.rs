@@ -5,25 +5,35 @@ pub fn messages() {
     }
 
     pub fn author() {
-        println!("\n{}\n", "Author: altunenes".truecolor(118, 3, 250));
+        let name = "enes altun".truecolor(118, 3, 250);
+        let link = "https://github.com/altunenes".truecolor(255, 165, 0);
+        println!("\n{}{}\n{}{}\n", "Author: ".truecolor(0, 255, 136), name, "GitHub: ".truecolor(0, 255, 136), link);
     }
-
     pub fn separator() {
         println!("{}", "-".repeat(60).red());
     }
 
     pub fn play_prompt() {
-        println!("{}", "If you want to play with words you want to practice print 1 and enter".truecolor(0, 255, 0));
+        let message = format!("{}{}{}",
+            "If you want to play with words you want to practice print ".truecolor(0, 255, 0),
+            "1".truecolor(255, 0, 0).bold(),
+            " and enter".truecolor(0, 255, 0),
+        );
+        println!("{}", message);
     }
-
+    
     pub fn list_prompt() {
-        println!("{}", "If you want to practice from a word_list.txt print 2 and enter".truecolor(0, 255, 136));
+        let message = format!("{}{}{}",
+            "If you want to practice from a word_list.txt print ".truecolor(0, 255, 0),
+            "2".truecolor(255, 0, 0).bold(),
+            " and enter".truecolor(0, 255, 0),
+        );
+        println!("{}", message);
     }
-
     pub fn exit_prompt() {
         let prompt = "if you want to exit the game enter ".truecolor(0, 255, 0);
         let stats = " and see your stats".truecolor(0, 255, 0);
-        let exit = "/exit".truecolor(255, 0, 0);
+        let exit = "/exit".truecolor(255, 0, 0).bold();
         let message = format!("{}{}{}",
             prompt,
             exit,
@@ -31,9 +41,20 @@ pub fn messages() {
         );
         println!("{}", message);
     }
-    pub fn mistake_prompt() {
-        println!("{}", "if you want to see your previous mistakes print 4 and enter".truecolor(0, 255, 136));
-    }
     pub fn play_mistake_promt(){
-        println!("{}", "if you want to play with your previous mistakes print 3 and enter".truecolor(0, 255, 136));
+        let message = format!("{}{}{}",
+            "If you want to play with your previous mistakes print ".truecolor(0, 255, 0),
+            "3".truecolor(255, 0, 0).bold(),
+            " and enter".truecolor(0, 255, 0),
+        );
+        println!("{}", message);
+    }
+    
+    pub fn mistake_prompt() {
+        let message = format!("{}{}{}",
+            "If you want to see your previous mistakes print ".truecolor(0, 255, 0),
+            "4".truecolor(255, 0, 0).bold(),
+            " and enter".truecolor(0, 255, 0),
+        );
+        println!("{}", message);
     }
