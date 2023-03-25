@@ -45,7 +45,7 @@ pub fn read_input_and_select_option() -> Result<Vec<String>, Box<dyn std::error:
         }
     }
     else if selected_option == "3" {
-        let file = File::open("results.json").map_err(|_| "Could not find results.json file. Please make sure the file exists in the current directory.")?;
+        let file = File::open("results.json").map_err(|_| "Could not find results.json file. Please make sure the file exists in the current directory. To create a JSON file you have to play at least one game")?;
             let reader = BufReader::new(file);
             let game_results: GameResults = serde_json::from_reader(reader)?;
             for result in game_results.game_results {
@@ -56,7 +56,7 @@ pub fn read_input_and_select_option() -> Result<Vec<String>, Box<dyn std::error:
     
         }
     else if selected_option == "4" {
-        let file = File::open("results.json").map_err(|_| "Could not find results.json file. Please make sure the file exists in the current directory.")?;
+        let file = File::open("results.json").map_err(|_| "Could not find results.json file. Please make sure the file exists in the current directory. To create a JSON file you have to play at least one game")?;
         let reader = BufReader::new(file);
         let game_results: GameResults = serde_json::from_reader(reader)?;
         for result in game_results.game_results {
