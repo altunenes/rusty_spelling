@@ -22,8 +22,18 @@ Description:
 
 4- Open the terminal (also known as command prompt or cmd) on your computer. You can simply open it in the folder "rusty_spelling" by right-clicking on the folder and selecting "Open in Terminal".
 
-5- Write the following command in the terminal to compile the code and create an executable file.
+
+5- Just write cargo run in the terminal to run the program like this:
+
+```bash
+cargo run
+```
+
+Thats it! You can start practicing your spelling :)
+
   
+6- Optionally, you can add the "--release" flag to the command to compile the code in release mode. This will make the executable file smaller and faster.
+
 ```bash
 cargo build --release
 ```
@@ -34,14 +44,7 @@ cargo build --release
 - You can simply the run executable file by double-clicking on it. 
 
 
-- Or run this command in the terminal after you build the executable file.
-  
-```bash
-cargo run
-```
-
-This will compile and run the program.
-
+Current look of the game:
 
   ![8x8](./static/rusty_spelling.png)
 
@@ -54,3 +57,6 @@ This will compile and run the program.
 
 - Working on a web version via wasm. :crab:
 - :no_entry_sign: react  
+
+### Contributing / Questions / Issues:
+- Feel free to open an issue or a pull request if you want to contribute to the project.
