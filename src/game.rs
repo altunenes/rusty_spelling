@@ -5,12 +5,10 @@ use colored::*;
 use crate::route::take_game_inputs;
 use crate::results::*;
 use structopt::StructOpt;
-#[derive(Debug, Clone, StructOpt)]
+#[derive(StructOpt)]
 pub struct GameInputs {
     #[structopt(short, long, default_value = "1.0")]
     pub speed_ratio: f32,
-    #[structopt(name = "FILE")]
-    pub file: Option<String>,
 }
 
 pub fn play_game() -> GameResult {
@@ -22,7 +20,15 @@ pub fn play_game() -> GameResult {
     let mut incorrect_words = Vec::new();
     let mut rng = rand::thread_rng();
     let mut tts = Tts::default().unwrap();
-    tts.set_rate(GameInputs::from_args().speed_ratio).unwrap(); 
+    let game_inputs = GameInputs::from_args();
+
+    if game_inputs.speed_ratio < 0.5 || game_inputs.speed_ratio > 10.0 {
+        eprintln!("Error: speed_ratio must be between 0.5 and 10.0");
+        std::process::exit(1);
+    }
+
+    tts.set_rate(game_inputs.speed_ratio).unwrap();
+
 
     'game_loop: while let Some(word) = words.choose(&mut rng) {
         tts.speak(word, true).unwrap();
