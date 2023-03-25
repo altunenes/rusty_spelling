@@ -10,7 +10,7 @@ Description:
 - The user tries to write the word they hear in a proper way.
 - Print /exit to exit the program and it prints the score and statistics of the game.
 - You can play with "word_list.txt" file that contains a list of words. You can add your own words to the file.
-- When you run a game it will automatically create a result.json file that contains the statistics of the game so you can track your progress.
+- When you run a game it will automatically create a result.json file that contains the statistics of the game so you can track your progress. You can also play with the previous mistakes you made with this json file.
 
 ### Usage/Installation:
 1-   You need to install rust on your computer. You can install it from [here](https://www.rust-lang.org/tools/install).
