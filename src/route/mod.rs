@@ -9,8 +9,13 @@ pub fn print_intro() {
     messages::separator();
     messages::list_prompt();
     messages::separator();
+    messages::play_mistake_promt();
+    messages::separator();
+    messages::mistake_prompt();
+    messages::separator();
     messages::exit_prompt();
     messages::separator();
+
 }
 
 pub fn take_game_inputs() -> Result<Vec<String>, Box<dyn std::error::Error>> {

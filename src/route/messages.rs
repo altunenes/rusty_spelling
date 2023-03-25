@@ -23,3 +23,9 @@ pub fn messages() {
     pub fn exit_prompt() {
         println!("{}", "if you want to exit the game enter /exit and see your stats".truecolor(0, 255, 136));
     }
+    pub fn mistake_prompt() {
+        println!("{}", "if you want to see your previous mistakes print 4 and enter".truecolor(0, 255, 136));
+    }
+    pub fn play_mistake_promt(){
+        println!("{}", "if you want to play with your previous mistakes print 3 and enter".truecolor(0, 255, 136));
+    }
