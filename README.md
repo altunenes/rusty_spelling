@@ -2,7 +2,7 @@
 
 [![Rust](https://github.com/altunenes/rusty_spelling/actions/workflows/rust.yml/badge.svg)](https://github.com/altunenes/rusty_spelling/actions/workflows/rust.yml)
 
-A basic spelling game in Rust programing language
+:crab: :crab: A basic spelling game in Rust programing language :crab: :crab:
 
 Description:
 - The user enters the words they want to practice.
@@ -52,4 +52,5 @@ This will compile and run the program.
 
 #### Future, in progress:
 
-- Working on a web version via wasm.
+- Working on a web version via wasm. :crab:
+- :no_entry_sign: react  
