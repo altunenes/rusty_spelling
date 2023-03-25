@@ -21,7 +21,15 @@ pub fn messages() {
     }
 
     pub fn exit_prompt() {
-        println!("{}", "if you want to exit the game enter /exit and see your stats".truecolor(0, 255, 136));
+        let prompt = "if you want to exit the game enter ".truecolor(0, 255, 0);
+        let stats = " and see your stats".truecolor(0, 255, 0);
+        let exit = "/exit".truecolor(255, 0, 0);
+        let message = format!("{}{}{}",
+            prompt,
+            exit,
+            stats,
+        );
+        println!("{}", message);
     }
     pub fn mistake_prompt() {
         println!("{}", "if you want to see your previous mistakes print 4 and enter".truecolor(0, 255, 136));
