@@ -4,6 +4,14 @@ use tts::*;
 use colored::*;
 use crate::route::take_game_inputs;
 use crate::results::*;
+use structopt::StructOpt;
+#[derive(Debug, Clone, StructOpt)]
+pub struct GameInputs {
+    #[structopt(short, long, default_value = "1.0")]
+    pub speed_ratio: f32,
+    #[structopt(name = "FILE")]
+    pub file: Option<String>,
+}
 
 pub fn play_game() -> GameResult {
     let words = take_game_inputs().unwrap();
@@ -14,6 +22,7 @@ pub fn play_game() -> GameResult {
     let mut incorrect_words = Vec::new();
     let mut rng = rand::thread_rng();
     let mut tts = Tts::default().unwrap();
+    tts.set_rate(GameInputs::from_args().speed_ratio).unwrap(); 
 
     'game_loop: while let Some(word) = words.choose(&mut rng) {
         tts.speak(word, true).unwrap();
