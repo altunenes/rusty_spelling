@@ -28,7 +28,7 @@ pub fn read_input_and_select_option() -> Result<Vec<String>, Box<dyn std::error:
                 words.push(word.trim().to_string());
             }
         }
-    } else {
+    }else {
         println!("{}", "Invalid option selected. Exiting game.".red());
         return Ok(vec![]);
     }
@@ -40,3 +40,5 @@ pub fn read_input_and_select_option() -> Result<Vec<String>, Box<dyn std::error:
 
     Ok(words)
 }
+
+
