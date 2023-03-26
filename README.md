@@ -2,7 +2,9 @@
 
 [![Rust](https://github.com/altunenes/rusty_spelling/actions/workflows/rust.yml/badge.svg)](https://github.com/altunenes/rusty_spelling/actions/workflows/rust.yml)
 
-:crab: :crab: A basic spelling game in Rust programing language :crab: :crab:
+![rustyse](https://user-images.githubusercontent.com/54986652/227798426-65315fd5-ad30-4f41-b384-5333dcc84d49.png)
+
+:crab: :crab: Abasic spelling game in Rust programing language :crab: :crab:
 
 Description:
 - The user enters the words they want to practice.
