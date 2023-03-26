@@ -4,7 +4,7 @@
 
 ![rustyse](https://user-images.githubusercontent.com/54986652/227798426-65315fd5-ad30-4f41-b384-5333dcc84d49.png)
 
-:crab: :crab: Abasic spelling game in Rust programing language :crab: :crab:
+:crab: :crab: spelling game in Rust programing language :crab: :crab:
 
 Description:
 - The user enters the words they want to practice.
