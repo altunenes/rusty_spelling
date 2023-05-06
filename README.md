@@ -1,7 +1,7 @@
 # rusty_spelling
 
 [![Rust](https://github.com/altunenes/rusty_spelling/actions/workflows/rust.yml/badge.svg)](https://github.com/altunenes/rusty_spelling/actions/workflows/rust.yml)
-
+[![CodeFactor](https://www.codefactor.io/repository/github/altunenes/rusty_spelling/badge)](https://www.codefactor.io/repository/github/altunenes/rusty_spelling)
 ![rustyse](https://user-images.githubusercontent.com/54986652/227798426-65315fd5-ad30-4f41-b384-5333dcc84d49.png)
 
 :crab: :crab: spelling game in Rust programing language :crab: :crab:
