@@ -1,7 +1,14 @@
 use colored::*;
-
+use tts::*;
 pub fn messages() {
         println!("\n{}\n", "Welcome to Rusty Spelling".green().bold().blink());
+    }
+pub fn voice_language() {
+        let tts = Tts::default().unwrap();
+        let voices = tts.voices().unwrap();
+        for voice in &voices {
+            println!("founded voice languages: {}", voice.language().into_inner().red());
+        }
     }
 
     pub fn author() {

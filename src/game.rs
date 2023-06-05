@@ -21,17 +21,21 @@ pub fn play_game() -> GameResult {
     let mut rng = rand::thread_rng();
     let mut tts = Tts::default().unwrap();
     let game_inputs = GameInputs::from_args();
+    let voices = tts.voices().unwrap();
+    let eng_voice = voices.into_iter().find(|v| v.language().into_inner() == "en");
 
     if game_inputs.speed_ratio < 0.5 || game_inputs.speed_ratio > 10.0 {
         eprintln!("Error: speed_ratio must be between 0.5 and 10.0");
         std::process::exit(1);
     }
-
     tts.set_rate(game_inputs.speed_ratio).unwrap();
 
-
+    if let Some(voice) = eng_voice {
+        tts.set_voice(&voice).unwrap();
+    }
+    
     'game_loop: while let Some(word) = words.choose(&mut rng) {
-        tts.speak(word, true).unwrap();
+        tts.speak(word, true,).unwrap();
         let hidden_word: String = word.chars().map(|_| "_ ".bold().to_string()).collect();
         println!("The word is: {}", hidden_word);
         println!("{}", "Enter your guess:".bold());

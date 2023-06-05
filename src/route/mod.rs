@@ -3,6 +3,7 @@ mod game_input;
 
 pub fn print_intro() {
     messages::messages();
+    messages::voice_language();
     messages::author();
     messages::separator();
     messages::play_prompt();
