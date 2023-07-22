@@ -6,6 +6,12 @@
 
 :crab: :crab: spelling game in Rust programing language :crab: :crab:
 
+
+
+### Why & Motivation:
+- My little sister studying English and I wanted to make a simple spelling game for her to practice her English :)
+
+
 Description:
 - The user enters the words they want to practice.
 
@@ -57,8 +63,6 @@ Current look of the game:
 
 
 
-### Motivation:
-- My little sister studying English and I wanted to make a simple spelling game for her to practice her English :)
 
 #### Future, in progress:
 
